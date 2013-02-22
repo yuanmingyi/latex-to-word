@@ -1,0 +1,24 @@
+{
+	"manifest_version": 2,
+	"name": "latex2mml.ext",
+	"version": "1.0",
+	"description": "convert latex formula to mathML",
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"browser_action": {
+		"default_title": "Latex2MML"
+	},
+	"content_scripts": [{
+		"matches": ["file:///*", "http://*/*", "https://*/*"],
+		"js": ["loadContent.js"],
+		"run_at": "document_end"
+	}],
+	"permissions": [
+		"tabs", "file:///*", "http://*/*", "https://*/*"
+	],
+	"web_accessible_resources": [
+		"latexMathML.js",
+		"interact.js"
+	]
+}
